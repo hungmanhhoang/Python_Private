@@ -1,30 +1,30 @@
 class Job:
     def __init__(self, id, job_name, job_field, salary) -> None:
-        self.id = id
-        self.job_name = job_name
-        self.job_field = job_field
-        self.salary = salary
+        self._id = id
+        self._job_name = job_name
+        self._job_field = job_field
+        self._salary = salary
     
     def __str__(self) -> str:
-        return f'ID: {self.id}, Tên: {self.job_name}, Lĩnh vực: {self.job_field}, Lương: {self.salary}'
+        return f'ID: {self._id}, Tên: {self._job_name}, Lĩnh vực: {self._job_field}, Lương: {self._salary}'
 
 class AI(Job):
     def __init__(self, job_code, job_name, field_name, salary, python_skill, ml_skill, deep_skill, math_skill):
         Job.__init__(self, job_code, job_name, field_name, salary)
-        self.python_skill = python_skill
-        self.ml_skill = ml_skill
-        self.deep_skill = deep_skill
-        self.math_skill = math_skill
+        self._python_skill = python_skill
+        self._ml_skill = ml_skill
+        self._deep_skill = deep_skill
+        self._math_skill = math_skill
         
     def __str__(self) -> str:
-        return super().__str__() + f', Kỹ năng: {self.python_skill}, {self.ml_skill}, {self.deep_skill}, {self.math_skill}'
+        return super().__str__() + f', Kỹ năng: {self._python_skill}, {self._ml_skill}, {self._deep_skill}, {self._math_skill}'
     
     def evaluate(self):
         score_dict = {
-            "python_skill": self.python_skill,
-            "ml_skill": self.ml_skill,
-            "deep_skill": self.deep_skill,
-            "math_skill": self.math_skill
+            "python_skill": self._python_skill,
+            "ml_skill": self._ml_skill,
+            "deep_skill": self._deep_skill,
+            "math_skill": self._math_skill
         }
         score = sum(score_dict.values()) / 4
         
@@ -43,20 +43,20 @@ class AI(Job):
 class BackEnd(Job):
     def __init__(self, id, job_name, job_field, salary, SQL_skill, OOP_skill, Api_skill, Java_skill) -> None:
         Job.__init__(self, id, job_name, job_field, salary)
-        self.Sql_skill = SQL_skill
-        self.OOP_skill = OOP_skill
-        self.Api_skill = Api_skill
-        self.Java_skill = Java_skill
+        self._Sql_skill = SQL_skill
+        self._OOP_skill = OOP_skill
+        self._Api_skill = Api_skill
+        self._Java_skill = Java_skill
         
     def __str__(self) -> str:
-        return super().__str__() + f', Kỹ năng: {self.Sql_skill}, {self.OOP_skill}, {self.Api_skill}, {self.Java_skill}'
+        return super().__str__() + f', Kỹ năng: {self._Sql_skill}, {self._OOP_skill}, {self._Api_skill}, {self._Java_skill}'
     
     def evaluate(self):
         score_dict = {
-            "sql_skill": self.Sql_skill,
-            "oop_skill": self.OOP_skill,
-            "api_skill": self.Api_skill,
-            "java_skill": self.Java_skill
+            "sql_skill": self._Sql_skill,
+            "oop_skill": self._OOP_skill,
+            "api_skill": self._Api_skill,
+            "java_skill": self._Java_skill
         }
         score = sum(score_dict.values()) / 4
         if score > 9:
@@ -74,22 +74,22 @@ class BackEnd(Job):
 class FrontEnd(Job):
     def __init__(self, id, job_name, job_field, salary, HTML_skill, CSS_skill, Nodejs_skill, UX, UI) -> None:
         Job.__init__(self, id, job_name, job_field, salary)
-        self.HTML_skill = HTML_skill
-        self.CSS_skill = CSS_skill
-        self.Nodejs_skill = Nodejs_skill
-        self.UX = UX
-        self.UI = UI
+        self._HTML_skill = HTML_skill
+        self._CSS_skill = CSS_skill
+        self._Nodejs_skill = Nodejs_skill
+        self._UX = UX
+        self._UI = UI
     
     def __str__(self) -> str:
-        return super().__str__() + f', Kỹ năng: {self.HTML_skill}, {self.CSS_skill}, {self.Nodejs_skill}, {self.UX}, {self.UI}'
+        return super().__str__() + f', Kỹ năng: {self._HTML_skill}, {self._CSS_skill}, {self._Nodejs_skill}, {self._UX}, {self._UI}'
     
     def evaluate(self):
         score_dict = {
-            "html_skill": self.HTML_skill,
-            "css_skill": self.CSS_skill,
-            "nodejs_skill": self.Nodejs_skill,
-            "ux_skill": self.UX,
-            "ui_skill": self.UI
+            "html_skill": self._HTML_skill,
+            "css_skill": self._CSS_skill,
+            "nodejs_skill": self._Nodejs_skill,
+            "ux_skill": self._UX,
+            "ui_skill": self._UI
         }
         score = sum(score_dict.values()) / 5
         if score > 9:
@@ -110,19 +110,19 @@ class FullStack(BackEnd, FrontEnd):
         FrontEnd.__init__(self, job_code, job_name, field_name, salary, html_skill, css_skill, nodejs_skill, ux_skill, ui_skill)
     
     def __str__(self) -> str:
-        return super().__str__() + f', {self.HTML_skill}, {self.CSS_skill}, {self.Nodejs_skill}, {self.UX}, {self.UI}'
+        return super().__str__() + f', {self._HTML_skill}, {self._CSS_skill}, {self._Nodejs_skill}, {self._UX}, {self._UI}'
     
     def evaluate(self):
         score_dict = {
-            "sql_skill": self.Sql_skill,
-            "oop_skill": self.OOP_skill,
-            "api_skill": self.Api_skill,
-            "java_skill": self.Java_skill,
-            "html_skill": self.HTML_skill,
-            "css_skill": self.CSS_skill,
-            "nodejs_skill": self.Nodejs_skill,
-            "ux_skill": self.UX,
-            "ui_skill": self.UI
+            "sql_skill": self._Sql_skill,
+            "oop_skill": self._OOP_skill,
+            "api_skill": self._Api_skill,
+            "java_skill": self._Java_skill,
+            "html_skill": self._HTML_skill,
+            "css_skill": self._CSS_skill,
+            "nodejs_skill": self._Nodejs_skill,
+            "ux_skill": self._UX,
+            "ui_skill": self._UI
         }
         score = sum(score_dict.values()) / 9
         if score > 9:
